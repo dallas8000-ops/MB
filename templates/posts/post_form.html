@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card mx-auto my-5" style="max-width: 500px;">
+    <div class="card-body">
+      <h2 class="card-title mb-4">{% if edit %}Edit Post{% else %}New Post{% endif %}</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">{% if edit %}Update{% else %}Post{% endif %}</button>
+      </form>
+      <a href="{% url 'post_list' %}" class="btn btn-link mt-3">Back to posts</a>
+    </div>
+  </div>
+{% endblock %}
