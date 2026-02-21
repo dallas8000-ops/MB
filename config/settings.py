@@ -120,3 +120,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+# Add STATIC_ROOT for collectstatic
+STATIC_ROOT = BASE_DIR / 'staticfiles'

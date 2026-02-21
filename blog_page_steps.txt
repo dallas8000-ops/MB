@@ -1,0 +1,43 @@
+How to Create a Blog Page in Django
+
+1. Create the Blog Template
+   - Go to the folder: templates/pages/
+   - Create a file named blog.html
+   - Add this code:
+     <h1>My Blog</h1>
+     <p>Welcome to the blog page!</p>
+
+2. Add a View for the Blog Page
+   - Open pages/views.py
+   - Add this function:
+     from django.shortcuts import render
+
+     def blog(request):
+         return render(request, 'pages/blog.html')
+
+3. Add a URL for the Blog Page
+   - Open pages/urls.py
+   - Add this path:
+     from django.urls import path
+     from . import views
+
+     urlpatterns = [
+         # ...existing code...
+         path('blog/', views.blog, name='blog'),
+     ]
+
+4. Include Pages URLs in Main URLs
+   - Open config/urls.py
+   - Make sure it includes:
+     from django.urls import path, include
+
+     urlpatterns = [
+         # ...existing code...
+         path('', include('pages.urls')),
+     ]
+
+5. Run the Server and Visit the Blog Page
+   - In the terminal, run:
+     python manage.py runserver
+   - Open your browser and go to:
+     http://127.0.0.1:8000/blog/

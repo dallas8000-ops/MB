@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}About{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/about.css' %}?v=20260218">
+<link rel="stylesheet" href="{% static 'css/about.css' %}?v=20260218">
+{% endblock %}
+
+{% block content %}
+There are those who, driven by desire, take on greater responsibilities and accept pain, assuming it will bring some benefit, but later face difficulties and repeated setbacks. Pleasures may bring temporary satisfaction, yet they can also lead to unforeseen consequences.Some things must be done carefully and thoughtfully. Certain errors may arise from poor judgment, and pleasures may disguise deeper obligations. Dignity and worth must be preserved, even when challenges and discomfort stand in the way. In the end, one must endure difficulties with patience and aware.</p>
+	<div class="card bg-primary text-white mb-4" style="border-radius: 1rem;">
+		<div class="card-body">
+			<h1 class="card-title">About Page using Jinja!</h1>
+			<div class="d-flex justify-content-center mb-3">
+				<img src="{% static 'images/Rio.jpg' %}" alt="Rio" class="img-fluid rounded border border-light" style="max-width: 350px; height: 350px; object-fit: cover;">
+			</div>
+			<p class="card-text">Pain itself, love it or leave it, is something that is pursued because of the circumstances. Wisdom may lead someone to act, to avoid temporary troubles and escape certain consequences. It happens that one may endure hardship, yet blame or discomfort may arise, and the mind may become troubled by it.
+There are those who, driven by desire, take on greater responsibilities and accept pain, assuming it will bring some benefit, but later face difficulties and repeated setbacks. Pleasures may bring temporary satisfaction, yet they can also lead to unforeseen consequences.Some things must be done carefully and thoughtfully. Certain errors may arise from poor judgment, and pleasures may disguise deeper obligations. Dignity and worth must be preserved, even when challenges and discomfort stand in the way. In the end, one must endure difficulties with patience and aware.</p>
+		</div>
+	</div>
+{% endblock %}

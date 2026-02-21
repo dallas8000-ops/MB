@@ -2,7 +2,10 @@
 {% block content %}
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="display-4">Message Board</h1>
-    <a href="{% url 'post_create' %}" class="btn btn-success">New Post</a>
+    <div>
+      <a href="{% url 'post_create' %}" class="btn btn-success">New Post</a>
+      <a href="/admin/" class="btn btn-dark ms-2">Admin</a>
+    </div>
   </div>
   {% if messages %}
     <ul class="messages">
@@ -15,11 +18,13 @@
     {% for post in posts %}
       <li class="mb-4 p-4 bg-white rounded shadow-sm">
         <div class="mb-2">
-          <strong class="text-primary">{{ post.author }}</strong>
-          <span class="text-muted">({{ post.created_at|date:'Y-m-d H:i' }})</span>:
+          <strong class="text-primary">{{ post.title }}</strong>
+          <span class="text-muted">({{ post.created_at|date:'Y-m-d H:i' }})</span>
         </div>
-        <div class="mb-3">{{ post.message|linebreaks }}</div>
+        <div class="mb-3"><em>{{ post.subtitle }}</em></div>
+        <div class="mb-3">{{ post.body|linebreaks }}</div>
         <div>
+          <a href="{% url 'post_detail' post.pk %}" class="btn btn-link">View</a>
           <a href="{% url 'post_edit' post.pk %}" class="btn btn-outline-primary btn-sm me-2">Edit</a>
           <a href="{% url 'post_delete' post.pk %}" class="btn btn-outline-danger btn-sm">Delete</a>
         </div>

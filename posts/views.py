@@ -1,39 +1,37 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
-from .forms import PostForm
-from django.contrib import messages
+from django.urls import reverse_lazy
 
-def post_list(request):
-    posts = Post.objects.order_by('-created_at')
-    return render(request, 'posts/post_list.html', {'posts': posts})
+# Class-based views for posts
+class PostListView(ListView):
+    template_name = "posts/list.html"
+    model = Post
+    context_object_name = "posts"
 
-def post_create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Post created successfully!')
-            return redirect('post_list')
-    else:
-        form = PostForm()
-    return render(request, 'posts/post_form.html', {'form': form})
+class PostDetailView(DetailView):
+    template_name = "posts/detail.html"
+    model = Post
+    context_object_name = "single_post"
 
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Post updated successfully!')
-            return redirect('post_list')
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'posts/post_form.html', {'form': form, 'edit': True, 'post': post})
+class PostCreateView(CreateView):
+    template_name = "posts/new.html"
+    model = Post
+    fields = ["title", "subtitle", "body", "author"]
+    success_url = reverse_lazy("post_list")
 
-def post_delete(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == 'POST':
-        post.delete()
-        messages.success(request, 'Post deleted successfully!')
-        return redirect('post_list')
-    return render(request, 'posts/post_confirm_delete.html', {'post': post})
+    def form_valid(self, form):
+        # Set the author to the last user (if using User model, otherwise remove this line)
+        # from django.contrib.auth.models import User
+        # form.instance.author = User.objects.last()
+        return super().form_valid(form)
+
+class PostUpdateView(UpdateView):
+    template_name = "posts/edit.html"
+    model = Post
+    fields = ["title", "subtitle", "body"]
+    success_url = reverse_lazy("post_list")
+
+class PostDeleteView(DeleteView):
+    template_name = "posts/delete.html"
+    model = Post
+    success_url = reverse_lazy("post_list")

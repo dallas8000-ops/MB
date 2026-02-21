@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="card-title display-4">{{ single_post.title }}</h1>
+        {% if single_post.subtitle %}
+          <h4 class="card-subtitle mb-2 text-muted">{{ single_post.subtitle }}</h4>
+        {% endif %}
+        <p class="text-secondary mb-1">By <strong>{{ single_post.author }}</strong></p>
+        <hr>
+        <div class="card-text" style="font-size:1.2em;">{{ single_post.body|linebreaks }}</div>
+        <hr>
+        <a href="{% url 'post_list' %}" class="btn btn-outline-primary">Back to Posts</a>
+        <a href="{% url 'post_delete' single_post.id %}" class="btn btn-danger ms-2">Delete Post</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+	<h1 class="home-title">Welcome to the Customized Home Page!</h1>
+	<div class="home-highlight">This page demonstrates external CSS, JS, and a static image.</div>
+	<img src="{% static 'images/Mamba.png' %}" alt="Mamba" class="home-img">
+	<p class="home-highlight">Enjoy exploring Django static files and template features!</p>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

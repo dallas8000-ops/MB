@@ -1,9 +1,11 @@
 from django.db import models
 
 class Post(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200, blank=True)
+    body = models.TextField()
     author = models.CharField(max_length=100)
-    message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.author}: {self.message[:30]}..."
+        return f"{self.title} - {self.author}"

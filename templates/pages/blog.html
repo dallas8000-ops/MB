@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Full-Stack Software Development Immersive (FSDI)</h1>
+    <h3>San Diego Global Knowledge University — Expected May 2026</h3>
+    <p>30-week intensive program covering full-stack development, databases, APIs, Agile, and capstone project work.</p>
+    <h3>Technical Diploma – Information Technology Security & Administration</h3>
+    <p>MyComputerCareer — Completed April 2025<br>
+    GPA: 94.21% | Networking, Operating Systems, Server Administration, Security Principles, Risk Management</p>
+    <hr>
+    <div style="text-align:center;">
+        <img src="{% static 'images/Barney.jpg' %}" alt="Barney" style="width:350px; max-width:90vw; border-radius:10px; margin-bottom:20px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+    </div>
+    <p style="background-color: #2d3748; color: #fff; padding: 15px; border-radius: 8px;">
+        My career is a testament to that exact capability. I’ve mastered complex systems under pressure in the military, secured physical and digital assets as an IT specialist, and I’m now actively building modern software skills. I don’t just follow instructions; I understand systems, ensure their reliability, and am driven to contribute to a mission larger than myself.<br><br>
+        I’m looking for a career where I can be a utility player: writing code, hardening infrastructure, troubleshooting deployments, and ensuring quality—all while learning at the speed your company needs to grow.
+    </p>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

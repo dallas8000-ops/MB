@@ -1,0 +1,54 @@
+/* about.css - Custom styles for the About page */
+
+
+
+body {
+    background: #f8fafc;
+}
+
+.custom-p {
+    background: #14213d;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.8rem 2rem;
+    margin: 1.5rem auto;
+    width: fit-content;
+    font-size: 1.15rem;
+    font-weight: 500;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.12);
+    text-align: center;
+}
+
+.photos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+        background: #e3eafc;
+}
+
+.photos img {
+        background: #2d3a4a;
+        color: #f5f7fa;
+    border: 4px solid #1976d2;
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
+    /* aspect-ratio removed to allow natural image ratio */
+}
+
+@media (max-width: 600px) {
+    .photos {
+        flex-direction: column;
+        border-radius: 16px;
+        box-shadow: 0 6px 24px rgba(45, 76, 120, 0.18);
+        border: 4px solid #3c4c78;
+    .photos img {
+        max-width: 90vw;
+    }
+    .custom-p {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}

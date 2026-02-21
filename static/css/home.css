@@ -5,22 +5,15 @@ body {
     padding: 0;
 }
 nav {
-    background: #2d3e50;
-    padding: 1em 2em;
-}
-nav a {
+    background: #3C4C78;
     color: #fff;
-    text-decoration: none;
-    margin-right: 1.5em;
-    font-weight: 500;
-    font-size: 1.1em;
 }
 nav a:hover {
     text-decoration: underline;
 }
 h1 {
     color: #2d3e50;
-    font-size: 2.5em;
+    border: 4px solid #2751C4;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
 }
@@ -151,3 +144,4 @@ nav .navbar-brand {
     font-size: 1.5em !important;
     font-weight: bold !important;
 }
+
